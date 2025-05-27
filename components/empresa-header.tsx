@@ -13,6 +13,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import LeafIcon from "./ui/LeafIcon"
 
 export function EmpresaHeader() {
   const pathname = usePathname()
@@ -31,7 +32,7 @@ export function EmpresaHeader() {
           onClick={() => router.push("/empresa/dashboard")}
           className="flex items-center space-x-2 p-0"
         >
-          <Recycle className="h-6 w-6 text-green-600" />
+          <LeafIcon className="h-6 w-6 text-green-600" />
           <span className="font-bold text-xl">GREENECT</span>
         </Button>
         <nav className="flex items-center space-x-4 lg:space-x-6">

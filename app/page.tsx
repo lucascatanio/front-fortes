@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Recycle, Users, Star, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import { Footer } from "@/components/footer"
+import LeafIcon from "../components/ui/LeafIcon"
 
 export default function LandingPage() {
   return (
@@ -9,7 +10,7 @@ export default function LandingPage() {
       <header className="w-full border-b bg-background">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center space-x-2">
-            <Recycle className="h-6 w-6 text-green-600" />
+            <LeafIcon />
             <span className="font-bold text-xl">GREENECT</span>
           </div>
           <nav className="flex items-center space-x-4">
@@ -56,7 +57,7 @@ export default function LandingPage() {
             </div>
             <div className="flex justify-center">
               <div className="relative w-full max-w-md aspect-square bg-green-100 rounded-full flex items-center justify-center">
-                <Recycle className="w-32 h-32 text-green-600" />
+                <LeafIcon width={250} height={250} />
               </div>
             </div>
           </div>

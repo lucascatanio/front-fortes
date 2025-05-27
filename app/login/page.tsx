@@ -7,12 +7,13 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Recycle, Loader2 } from "lucide-react"
+import { Loader2 } from "lucide-react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { Footer } from "@/components/footer"
 import { useAuth } from "@/lib/auth-context"
 import { useToast } from "@/hooks/use-toast"
+import LeafIcon from "@/components/ui/LeafIcon"
 
 export default function LoginPage() {
   const router = useRouter()
@@ -57,7 +58,11 @@ export default function LoginPage() {
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
             <div className="flex justify-center mb-4">
-              <Recycle className="h-12 w-12 text-green-600" />
+              <div className="flex justify-center">
+                <div className="relative w-full max-w-md aspect-square bg-green-100 rounded-full flex items-center justify-center">
+                  <LeafIcon width={150} height={150} />
+                </div>
+              </div>
             </div>
             <h1 className="text-3xl font-bold">Greenect</h1>
             <p className="text-muted-foreground mt-2">Conectando empresas e instituições sociais pelo meio ambiente</p>

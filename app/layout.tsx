@@ -11,8 +11,7 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "GREENECT - Gerenciamento de Projetos de Reciclagem",
-  description: "Plataforma para gerenciamento de projetos de reciclagem",
-    generator: 'v0.dev'
+  description: "Plataforma para gerenciamento de projetos de reciclagem"
 }
 
 export default function RootLayout({

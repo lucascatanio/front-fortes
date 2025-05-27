@@ -11,9 +11,9 @@ import { Star, Trash2 } from "lucide-react"
 export default function EstatisticasPage() {
   const { projetos, carregarProjetos } = useProjetosStore()
   const [estatisticas, setEstatisticas] = useState({
-    totalColetas: 0,
-    totalLixoGerado: 0,
-    avaliacaoMedia: 0,
+    totalColetas: 10,
+    totalLixoGerado: 1500,
+    avaliacaoMedia: 4.4,
     empresasFrequentes: [] as { nome: string; coletas: number }[],
   })
 
@@ -34,9 +34,9 @@ export default function EstatisticasPage() {
     ]
 
     setEstatisticas({
-      totalColetas: projetosConcluidos.length,
-      totalLixoGerado: totalLixo,
-      avaliacaoMedia: 4.2, // Valor simulado
+      totalColetas: estatisticas.totalColetas,
+      totalLixoGerado: estatisticas.totalLixoGerado,
+      avaliacaoMedia: estatisticas.avaliacaoMedia, // Valor simulado
       empresasFrequentes: empresas,
     })
   }, [projetos, carregarProjetos])

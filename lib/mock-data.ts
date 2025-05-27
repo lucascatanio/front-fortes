@@ -1,44 +1,44 @@
 // Dados mockados para substituir o banco de dados
-import { v4 as uuidv4 } from "uuid"
+import { v4 as uuidv4 } from "uuid";
 
 // Tipos de usuários
-export type TipoUsuario = "instituicao" | "empresa"
+export type TipoUsuario = "instituicao" | "empresa";
 
 // Interface para usuário
 export interface Usuario {
-  id: string
-  nome: string
-  email: string
-  senha: string
-  tipo: TipoUsuario
-  documento: string
-  endereco: string
-  telefone: string
-  avatar?: string
+  id: string;
+  nome: string;
+  email: string;
+  senha: string;
+  tipo: TipoUsuario;
+  documento: string;
+  endereco: string;
+  telefone: string;
+  avatar?: string;
 }
 
 // Interface para projeto
 export interface Projeto {
-  id: string
-  nome: string
-  descricao: string
-  instituicaoId: string
-  instituicaoNome?: string
-  data: string | Date
-  endereco: string
-  cep?: string
+  id: string;
+  nome: string;
+  descricao: string;
+  instituicaoId: string;
+  instituicaoNome?: string;
+  data: string | Date;
+  endereco: string;
+  cep?: string;
   coordenadas?: {
-    latitude: number
-    longitude: number
-  }
-  quantidadeLixo: number
-  tiposLixo: Array<string | { tipo: string; quantidade: number }>
-  status: "Pendente" | "Em andamento" | "Concluído" | "Desativado"
+    latitude: number;
+    longitude: number;
+  };
+  quantidadeLixo: number;
+  tiposLixo: Array<string | { tipo: string; quantidade: number }>;
+  status: "Pendente" | "Em andamento" | "Concluído" | "Desativado";
   avaliacao?: {
-    rating: number
-    comentario: string
-    data: Date
-  }
+    rating: number;
+    comentario: string;
+    data: Date;
+  };
 }
 
 // Usuários mockados
@@ -65,7 +65,7 @@ export const usuarios: Usuario[] = [
     telefone: "(11) 91234-5678",
     avatar: "ER",
   },
-]
+];
 
 // Projetos mockados
 export const projetos: Projeto[] = [
@@ -114,7 +114,8 @@ export const projetos: Projeto[] = [
   {
     id: "3",
     nome: "Exposição de Arte Contemporânea",
-    descricao: "Exposição de arte com materiais recicláveis. Precisaremos de coleta após o término do evento.",
+    descricao:
+      "Exposição de arte com materiais recicláveis. Precisaremos de coleta após o término do evento.",
     instituicaoId: "1",
     instituicaoNome: "Instituto Cultural Verde Vida",
     data: new Date("2024-01-10"),
@@ -135,7 +136,8 @@ export const projetos: Projeto[] = [
   {
     id: "4",
     nome: "Workshop de Reciclagem",
-    descricao: "Workshop educativo sobre reciclagem e reaproveitamento de materiais.",
+    descricao:
+      "Workshop educativo sobre reciclagem e reaproveitamento de materiais.",
     instituicaoId: "1",
     instituicaoNome: "Instituto Cultural Verde Vida",
     data: new Date("2023-12-05"),
@@ -154,54 +156,58 @@ export const projetos: Projeto[] = [
     status: "Concluído",
     avaliacao: {
       rating: 5,
-      comentario: "Excelente serviço! A equipe foi muito profissional e pontual.",
+      comentario:
+        "Excelente serviço! A equipe foi muito profissional e pontual.",
       data: new Date("2023-12-06"),
     },
   },
-]
+];
 
 // Função para gerar um ID único
 export function gerarId(): string {
-  return uuidv4()
+  return uuidv4();
 }
 
 // Função para obter usuário pelo email e senha
-export function obterUsuarioPorCredenciais(email: string, senha: string): Usuario | null {
-  return usuarios.find((u) => u.email === email && u.senha === senha) || null
+export function obterUsuarioPorCredenciais(
+  email: string,
+  senha: string
+): Usuario | null {
+  return usuarios.find((u) => u.email === email && u.senha === senha) || null;
 }
 
 // Função para adicionar um novo usuário
 export function adicionarUsuario(usuario: Omit<Usuario, "id">): Usuario {
-  const novoUsuario = { ...usuario, id: gerarId() }
-  usuarios.push(novoUsuario as Usuario)
-  return novoUsuario as Usuario
+  const novoUsuario = { ...usuario, id: gerarId() };
+  usuarios.push(novoUsuario as Usuario);
+  return novoUsuario as Usuario;
 }
 
 // Função para obter projetos por instituição
 export function obterProjetosPorInstituicao(instituicaoId: string): Projeto[] {
-  return projetos.filter((p) => p.instituicaoId === instituicaoId)
+  return projetos.filter((p) => p.instituicaoId === instituicaoId);
 }
 
 // Função para adicionar um novo projeto
 export function adicionarProjeto(projeto: Omit<Projeto, "id">): Projeto {
-  const novoProjeto = { ...projeto, id: gerarId() }
-  projetos.push(novoProjeto as Projeto)
-  return novoProjeto as Projeto
+  const novoProjeto = { ...projeto, id: gerarId() };
+  projetos.push(novoProjeto as Projeto);
+  return novoProjeto as Projeto;
 }
 
 // Função para atualizar um projeto
 export function atualizarProjeto(projeto: Projeto): Projeto {
-  const index = projetos.findIndex((p) => p.id === projeto.id)
+  const index = projetos.findIndex((p) => p.id === projeto.id);
   if (index !== -1) {
-    projetos[index] = projeto
+    projetos[index] = projeto;
   }
-  return projeto
+  return projeto;
 }
 
 // Função para remover um projeto
 export function removerProjeto(id: string): void {
-  const index = projetos.findIndex((p) => p.id === id)
+  const index = projetos.findIndex((p) => p.id === id);
   if (index !== -1) {
-    projetos.splice(index, 1)
+    projetos.splice(index, 1);
   }
 }

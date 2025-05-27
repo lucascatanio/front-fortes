@@ -12,6 +12,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import LeafIcon from "./ui/LeafIcon"
 
 export function Header() {
   const pathname = usePathname()
@@ -26,7 +27,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background">
       <div className="container flex h-16 items-center justify-between">
         <Button variant="link" onClick={() => router.push("/projetos")} className="flex items-center space-x-2 p-0">
-          <Recycle className="h-6 w-6 text-green-600" />
+          <LeafIcon height={250} />
           <span className="font-bold text-xl">GREENECT</span>
         </Button>
         <nav className="flex items-center space-x-4 lg:space-x-6">
